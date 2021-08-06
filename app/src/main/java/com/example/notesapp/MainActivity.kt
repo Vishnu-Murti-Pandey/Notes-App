@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), INotesItemClicked{
         viewModel = ViewModelProvider(this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NoteViewModel::class.java)
 
-        viewModel.allNotes.observe(this, Observer {list ->
+        viewModel.allNotes.observe(this, {list ->
             list?.let {
                 mAdapter.updateList(it)
             }
